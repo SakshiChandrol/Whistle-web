@@ -1,0 +1,113 @@
+<div class="boxi">
+    <form [formGroup]="loginForm" (ngSubmit) = "logIna();">
+      <div *ngIf="value" class="ifinvalid">Sorry we are unable to process your
+         request at this moment.Please try again later</div>
+      <h5><b>Hi Enter details to Register</b></h5>
+      <div class="form-group">
+        <label for="fname">First Name</label>
+        <input type="text" class="form-control" name="fname" 
+        (keydown.space)="$event.preventDefault();" formControlName="fname" required>
+      </div>
+      <div *ngIf="isValidInput('fname')"
+      class="alert" style="color:red">
+      <div *ngIf="loginForm.controls['fname'].errors.required">
+        First Name is required.
+      </div>
+      <div *ngIf="loginForm.controls['fname'].errors.pattern">
+        Must be a valid email format.
+      </div>
+    </div> 
+      <div class="form-group">
+        <label for="lname">Last Name</label>
+        <input type="text" class="form-control" name="lname"
+        (keydown.space)="$event.preventDefault();" formControlName="lname" required>
+      </div>
+      <div *ngIf="isValidInput('lname')"
+      class="alert" style="color:red">
+      <div *ngIf="loginForm.controls['lname'].errors.required">
+        Last Name is required.
+      </div>
+      <div *ngIf="loginForm.controls['lname'].errors.pattern">
+        Must be a valid email format.
+      </div>
+    </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" 
+        (keydown.space)="$event.preventDefault();" formControlName="email" required>
+      </div>
+      <div *ngIf="isValidInput('email')"
+      class="alert" style="color:red">
+      <div *ngIf="loginForm.controls['email'].errors.required">
+        Email is required.
+      </div>
+      <div *ngIf="loginForm.controls['email'].errors.pattern">
+        Must be a valid email format.
+      </div>
+    </div>
+      <div class="form-group">
+        <label for="loginid">Login Id</label>
+        <input type="loginid" class="form-control" name="loginid"  
+        (keydown.space)="$event.preventDefault();" formControlName="loginid" required>
+      </div>
+      <div *ngIf="isValidInput('loginid')"
+      class="alert" style="color:red">
+      <div *ngIf="loginForm.controls['loginid'].errors.required">
+        Login id is required.
+      </div>
+      <div *ngIf="loginForm.controls['loginid'].errors.pattern">
+        Must be a valid email format.
+      </div>
+    </div>
+      <div class="form-group">
+        <label for="pwd">Password</label>
+        <input type="password" class="form-control" name="pwd"
+        (keydown.space)="$event.preventDefault();" formControlName="pwd" required>
+      </div>
+      <div *ngIf="isValidInput('pwd')"
+      class="alert" style="color:red">
+      <div *ngIf="loginForm.controls['pwd'].errors.required">
+        Password is required.
+      </div>
+      <div *ngIf="loginForm.controls['pwd'].errors.pattern">
+        Must be a valid email format.
+      </div>
+    </div>
+      <div class="form-group">
+        <label for="cpwd">Confirm Password</label>
+        <input type="password" class="form-control" name="cpwd" 
+        (keydown.space)="$event.preventDefault();" formControlName="cpwd" required>
+      </div>
+      <div *ngIf="isValidInput('cpwd')"
+      class="alert" style="color:red">
+      <div *ngIf="loginForm.controls['cpwd'].errors.required">
+        Confirm Password is required.
+      </div>
+      <div *ngIf="loginForm.controls['cpwd'].errors.pattern">
+        Must be a valid email format.
+      </div>
+      <div *ngIf="checkIfMatchingPasswords('pwd','cpwd')">
+        Password and Confirm Password must be match.</div>
+    </div>
+    
+      <div class="form-group">
+        <label for="phone">Contact Number</label>
+        <input type="phone" class="form-control" name="phone" 
+        (keydown.space)="$event.preventDefault();" formControlName="phone" required>
+      </div>
+      <div *ngIf="isValidInput('phone')"
+      class="alert" style="color:red">
+      <div *ngIf="loginForm.controls['phone'].errors.required">
+        Contact Number is required.
+      </div>
+      <div *ngIf="loginForm.controls['phone'].errors.pattern">
+        Must be a valid email format.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-success my2- my-sm-0" type="submit" name="submit" [disabled]="!loginForm.valid">
+        <b>REGISTER</b></button></div>
+          </form>
+        </div>
+    <router-outlet></router-outlet>

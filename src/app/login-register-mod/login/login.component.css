@@ -1,0 +1,31 @@
+
+ input{
+     width: 40%;
+     border-radius: 20px;
+ }
+ .ifinvalid{
+     color :red;
+     width : 40%;
+     margin-bottom: 1%;
+     border: solid 1px red;
+     padding-left: 3%;
+ }
+ form{
+     color: black;
+     padding-top: 100px;
+     padding-left: 500px;
+ }
+ button{
+     margin-left: 35px;
+     width: 33%;
+     border-radius: 20px;
+     
+ }
+ h2{
+     margin-left: 90px;
+     font-weight: bold;
+ }
+ .boxi{
+    margin-left: 2%; width:96%;background-color: #d9d8db;font-weight: bold;
+    padding-bottom: 9%;
+ }

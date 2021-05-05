@@ -1,0 +1,23 @@
+input{
+    width: 60%;
+    border-radius: 20px;
+}
+form{
+    color: black;
+    padding-top: 100px;
+    padding-left: 350px;
+}
+button{
+    margin-left: 35px;
+    width: 53%;
+    border-radius: 20px;
+    
+}
+h2{
+    margin-left: 90px;
+    font-weight: bold;
+}
+.boxi{
+   margin-left: 2%; width:96%;background-color: #d9d8db;font-weight: bold;
+   padding-bottom: 9%;
+}

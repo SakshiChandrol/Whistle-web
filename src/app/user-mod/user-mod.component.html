@@ -1,0 +1,91 @@
+
+<form [formGroup]="loginForm" style="margin-left: 10%; margin-top: 2%;"> 
+    <div class="form-group">
+    <input type="search" placeholder="please enter username" formControlName="keyword" >
+</div>
+<div *ngIf="isValidInput('keyword')"
+    class="alert alert-danger">
+    <div *ngIf="loginForm.controls['keyword'].errors.required">
+      Password is required.
+    </div>
+  </div>
+<div class="form-group" >
+    <button class="btn btn-success my2- my-sm-0"  type="submit" name="submit"
+     [disabled]="!loginForm.valid" (click)="findUser()" >
+        <b>Search for user</b></button>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-success my2- my-sm-0"  type="submit" name="submit"
+             [disabled]="!loginForm.valid" (click)="findTweet()" >
+                <b>Search for tweet of user</b></button>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-success my2- my-sm-0"  type="submit" name="submit"
+                      (click)="findAllUser()" >
+                        <b>All users</b></button></div>
+    </form>
+    <div class="row">
+        <div class="col-sm-5">
+    
+        </div>
+        <div class="col-sm-7" >
+            <div class="inclose" style="border:solid whitesmoke;background-color: silver;">
+               
+               <div  *ngIf="isselected" class="tweetrepeat" style="border:solid whitesmoke;background-color: white;" >
+                   <br>
+                <img src="https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Rabbit-512.png" width="70" height="70">
+                {{user.fname}}&nbsp;{{user.lname}}&nbsp;&nbsp;{{user.email}}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            {{user.phone}}
+                <br>
+                <br>
+               
+            </div>
+            </div>
+        </div>
+    </div>   
+    <div class="row">
+        <div class="col-sm-5">
+    
+        </div>
+        <div class="col-sm-7">
+            <div class="inclose" style="border:solid whitesmoke;background-color: silver;">
+               
+               <div class="tweetrepeat" *ngFor="let tweet of tweets;let i=index;"style="border:solid whitesmoke;background-color: white;" >
+                   <br>
+                   {{tweet.postedAt}}
+                   <br>
+                <img src="https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Rabbit-512.png" width="70" height="70">
+                @{{tweet.userid}}&nbsp;&nbsp;&nbsp;{{tweet.message}}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            {{tweet.likes}}
+                <br>
+                <br>
+               
+            </div>
+            </div>
+        </div>
+    </div>   
+    <div class="row">
+        <div class="col-sm-5">
+    
+        </div>
+        <div class="col-sm-7">
+            <div class="inclose" style="border:solid whitesmoke;background-color: silver;">
+               
+               <div class="tweetrepeat" *ngFor="let u of allUser;let i=index;"style="border:solid whitesmoke;background-color: white;" >
+                <br>
+                <img src="https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Rabbit-512.png" width="70" height="70">
+                {{u.fname}}&nbsp;{{u.lname}}&nbsp;&nbsp;{{u.email}}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            {{u.phone}}
+                <br>
+                <br>
+               
+            </div>
+            </div>
+        </div>
+    </div>   
+
+
+

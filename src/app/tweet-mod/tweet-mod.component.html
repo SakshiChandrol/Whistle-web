@@ -1,0 +1,92 @@
+<div class="boxi">
+    <br>
+    <div class="row">
+        <div class="col-sm-4">
+<img src="https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Rabbit-512.png"
+ alt="Girl in a jacket" width="120" height="120">
+</div>
+<div class="col-sm-1"></div>
+<div class="col-sm-7">
+    <form [formGroup]="loginForm" (ngSubmit) = "logIna();">
+        <div class="form-group" >
+    <textarea placeholder="New Tweet" class="form-control" 
+     formControlName="message" id="message" name="message" rows="3"cols="50"></textarea>
+    </div>
+    <div *ngIf="isValidInput('message')"
+    class="alert alert-danger">
+    <div *ngIf="loginForm.controls['message'].errors.required">
+      Password is required.
+    </div>
+  </div>
+  
+    <br>
+    <div class="form-group" >
+    <button class="btn btn-success my2- my-sm-0"  type="submit" name="submit" [disabled]="!loginForm.valid" >
+        <b>Post Tweet</b></button></div>
+    </form>
+</div>
+</div>
+</div>
+
+<div class="row">
+    <div class="col-sm-4">
+
+    </div>
+    <div class="col-sm-8">
+        <div class="inclose" style="border:solid whitesmoke;background-color: silver;">
+           
+           <div class="tweetrepeat" *ngFor="let tweet of tweets;let i=index;"style="border:solid whitesmoke;background-color: white;" >
+               <br>
+               {{tweet.postedAt}}
+               <br>
+            <img src="https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Rabbit-512.png" width="70" height="70">
+            @{{tweet.userid}}&nbsp;&nbsp;&nbsp;{{tweet.message}}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn my2- my-sm-0"
+             (click) ="onLikeClick($event,i)" >LIKE </button>{{tweet.likes}}
+            <br>
+            <br>
+            <button type="button" class="btn btn-success my2- my-sm-0" 
+            (click)="onEditClick($event,i)">Edit </button>
+            <button type="button" class="btn btn-success my2- my-sm-0" 
+            (click) ="onReplyClick($event,i)">Reply </button>
+            <button type="button" class="btn btn-success my2- my-sm-0" 
+            (click) ="onDeleteClick($event,i)">delete </button>
+            <button type="button" class="btn btn-success my2- my-sm-0" data-toggle="modal" data-target="#myModal"
+            (click) ="onViewReply($event,i)">View Replies </button>
+        </div>
+        </div>
+    </div>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+      
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+                {{data}}
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="tweetrepeat" *ngFor="let tweet of replytweets;let i=index;"style="border:solid whitesmoke;background-color: white;" >
+                    <br>
+                    
+                    {{tweet.postedAt}}
+                    <br>
+                 <img src="https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Rabbit-512.png" width="70" height="70">
+                 @{{tweet.userid}}&nbsp;&nbsp;&nbsp;{{tweet.message}}
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <button type="button" class="btn my2- my-sm-0"
+                  (click) ="onLikeClick($event,i)" >LIKE </button>{{tweet.likes}}
+                 <br>
+                 <br>
+                 </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+    
+</div>

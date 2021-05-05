@@ -1,0 +1,18 @@
+<form [formGroup]="replyForm" (ngSubmit) = "logIna();">
+    <div class="form-group" >
+<textarea placeholder="New Tweet" class="form-control" 
+ formControlName="message" id="message" name="message" rows="3"cols="50"></textarea>
+</div>
+<div *ngIf="isValidInput('message')"
+class="alert alert-danger">
+<div *ngIf="replyForm.controls['message'].errors.required">
+  Password is required.
+</div>
+</div>
+
+<br>
+<div class="form-group" >
+<button class="btn btn-success my2- my-sm-0"  type="submit" name="submit"[disabled]="!replyForm.valid" >
+    <b>Post Tweet</b></button></div>
+</form>
+

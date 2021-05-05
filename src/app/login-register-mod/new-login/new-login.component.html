@@ -1,0 +1,53 @@
+<div class="boxi">
+    <form [formGroup]="loginForm" (ngSubmit) = "logIna();" >
+      <div *ngIf="value" class="ifinvalid">Username or Password is incorrect</div>
+      <h5><b></b></h5>
+      <div class="form-group" >
+        <label for="loginid">Username</label>
+        <input type="text" class="form-control" name="loginid" id="loginid" 
+        placeholder="Enter your username" 
+         (keydown.space)="$event.preventDefault();" formControlName="loginid" required>
+      </div>
+      <div *ngIf="isValidInput('loginid')"
+      class="alert" style="color:red">
+          <div *ngIf="loginForm.controls['loginid'].errors.required">
+            Username is required.
+          </div>
+          <div *ngIf="loginForm.controls['loginid'].errors.pattern">
+            Must be a valid email format.
+          </div>
+       
+     
+       </div> <div class="form-group">
+        <label for="pwd">Password</label>
+        <input type="password" class="form-control" name="pwd" id="pwd" [(ngModel)]="password"
+         placeholder="Enter your Password"  (keydown.space)="$event.preventDefault();" formControlName="pwd" required></div>
+       <div> 
+         <div *ngIf="isValidInput('pwd')"
+         class="alert" style="color:red">
+         <div *ngIf="loginForm.controls['pwd'].errors.required">
+           Password is required.
+         </div>
+       </div>
+    </div> <div class="form-group">
+        <label for="cpwd">Confirm Password</label>
+        <input type="password" class="form-control" name="cpwd" id="cpwd"  [(ngModel)]="cpassword"
+         placeholder="Enter your Password" (keydown.enter)="onhit()" (keydown.space)="$event.preventDefault();" formControlName="cpwd" required></div>
+       
+         <div *ngIf="isValidInput('cpwd')"
+         class="alert" style="color:red">
+         <div *ngIf="loginForm.controls['cpwd'].errors.required">
+           Password is required.
+         </div>
+         <div *ngIf="checkIfMatchingPasswords('pwd','cpwd')">
+           Password and Confirm Password must be match.</div>
+       </div>
+       <div class="form-group">
+         <button class="btn btn-success my2- my-sm-0" type="submit" name="submit" [disabled]="!loginForm.valid">
+           <b>Reset Password</b></button></div>
+          </form>
+         
+        </div>
+<router-outlet></router-outlet>
+   
+       
