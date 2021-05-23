@@ -27,7 +27,7 @@ describe('LoginService', () => {
       console.log(data)
       expect(data).toBe(dummyUsers);
       });
-    const req = httpTestingController.expectOne(`http://localhost:8089/api/v1.0/tweets/login`,'login');
+    const req = httpTestingController.expectOne(`http://localhost:8090/api/v1.0/tweets/login`,'login');
     expect(req.request.method).toBe('POST');
     req.flush(dummyUsers);
     httpTestingController.verify();
@@ -42,7 +42,7 @@ describe('LoginService', () => {
       console.log(data)
       expect(data).toBe(null);
       });
-    const req = httpTestingController.expectOne(`http://localhost:8089/api/v1.0/tweets/mini1234/forget`,'reset password');
+    const req = httpTestingController.expectOne(`http://localhost:8090/api/v1.0/tweets/mini1234/forget`,'reset password');
     expect(req.request.method).toBe('PUT');
     req.flush(null);
     httpTestingController.verify();
