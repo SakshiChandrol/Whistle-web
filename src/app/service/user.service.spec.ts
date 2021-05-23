@@ -27,7 +27,7 @@ describe('UserService', () => {
     expect(data).toEqual(dummyUsers);
     console.log(data)
     });
-    const req = httpTestingController.expectOne(`http://localhost:8089/api/v1.0/tweets/users/all`, 'call to api');
+    const req = httpTestingController.expectOne(`http://localhost:8090/api/v1.0/tweets/users/all`, 'call to api');
     expect(req.request.method).toBe('GET');
     req.flush(dummyUsers);
     httpTestingController.verify();
@@ -39,7 +39,7 @@ describe('UserService', () => {
     expect(data).toEqual(dummyUser);
     console.log(data)
     });
-    const req = httpTestingController.expectOne(`http://localhost:8089/api/v1.0/tweets/user/search/AnshulChandrol`, 'call to api');
+    const req = httpTestingController.expectOne(`http://localhost:8090/api/v1.0/tweets/user/search/AnshulChandrol`, 'call to api');
     expect(req.request.method).toBe('GET');
     req.flush(dummyUser);
     httpTestingController.verify();
@@ -51,7 +51,7 @@ describe('UserService', () => {
       console.log(data)
       expect(data).toBe(dummyUser);
       });
-    const req = httpTestingController.expectOne(`http://localhost:8089/api/v1.0/tweets/register`,'register');
+    const req = httpTestingController.expectOne(`http://localhost:8090/api/v1.0/tweets/register`,'register');
     expect(req.request.method).toBe('POST');
     req.flush(dummyUser);
     httpTestingController.verify();
