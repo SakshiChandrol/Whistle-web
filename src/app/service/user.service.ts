@@ -16,12 +16,12 @@ export class UserService {
   constructor(private http:HttpClient) { }
 
   onRegister(user:User) : Observable<User>{
-    return this.http.post<User>("http://localhost:8089/api/v1.0/tweets/register",user);
+    return this.http.post<User>("http://localhost:8090/api/v1.0/tweets/register",user);
   }
   allUser() {
-    return this.http.get<User[]>("http://localhost:8089/api/v1.0/tweets/users/all");
+    return this.http.get<User[]>("http://localhost:8090/api/v1.0/tweets/users/all");
   }
   findUser(userid:string) {
-    return this.http.get<User>("http://localhost:8089/api/v1.0/tweets/user/search/"+userid);
+    return this.http.get<User>("http://localhost:8090/api/v1.0/tweets/user/search/"+userid);
   }
 }
