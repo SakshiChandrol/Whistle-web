@@ -19,26 +19,26 @@ export class TweetService {
   getAllTweets(userid:string):Observable<Tweet[]>
    {
     
-    return this.http.get<Tweet[]>("http://localhost:8089/api/v1.0/tweets/"+userid);
+    return this.http.get<Tweet[]>("http://localhost:8090/api/v1.0/tweets/"+userid);
    }
    onViewReply(userid:string,id :string) : Observable<any>{ 
-    return this.http.get<Tweet[]>("http://localhost:8089/api/v1.0/tweets/"+userid+"/replyed/"+id);
+    return this.http.get<Tweet[]>("http://localhost:8090/api/v1.0/tweets/"+userid+"/replyed/"+id);
   }
 
   onPost(tweet: Tweet,userid:string) : Observable<any>{
-    return this.http.post<Tweet>("http://localhost:8089/api/v1.0/tweets/"+userid+"/add",tweet);
+    return this.http.post<Tweet>("http://localhost:8090/api/v1.0/tweets/"+userid+"/add",tweet);
   }
   onReply(tweet: Tweet,userid:string,id:string) : Observable<any>{
-    return this.http.post<Tweet>("http://localhost:8089/api/v1.0/tweets/"+userid+"/reply/"+id,tweet);
+    return this.http.post<Tweet>("http://localhost:8090/api/v1.0/tweets/"+userid+"/reply/"+id,tweet);
   }
   onEdit(tweet: Tweet,userid:string,id :string) : Observable<any>{ 
-    return this.http.put<Tweet>("http://localhost:8089/api/v1.0/tweets/"+userid+"/update/"+id,tweet);
+    return this.http.put<Tweet>("http://localhost:8090/api/v1.0/tweets/"+userid+"/update/"+id,tweet);
   }
   onLike(tweet: Tweet,userid:string,id :string) : Observable<any>{ 
-    return this.http.put<Tweet>("http://localhost:8089/api/v1.0/tweets/"+userid+"/like/"+id,tweet);
+    return this.http.put<Tweet>("http://localhost:8090/api/v1.0/tweets/"+userid+"/like/"+id,tweet);
   }
   onDelete(userid:string,id :string) : Observable<any>{ 
-    return this.http.delete<Tweet>("http://localhost:8089/api/v1.0/tweets/"+userid+"/delete/"+id);
+    return this.http.delete<Tweet>("http://localhost:8090/api/v1.0/tweets/"+userid+"/delete/"+id);
   }
 
 }
