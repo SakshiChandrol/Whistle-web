@@ -29,7 +29,7 @@ describe('TweetService', () => {
     expect(data).toEqual(dummyTweet);
     console.log(data)
     });
-    const req = httpTestingController.expectOne(`http://localhost:8089/api/v1.0/tweets/all`, 'call to api');
+    const req = httpTestingController.expectOne(`http://localhost:8090/api/v1.0/tweets/all`, 'call to api');
     expect(req.request.method).toBe('GET');
     req.flush(dummyTweet);
     httpTestingController.verify();
@@ -43,7 +43,7 @@ describe('TweetService', () => {
     expect(data).toEqual(dummyTweet);
     console.log(data)
     });
-    const req = httpTestingController.expectOne(`http://localhost:8089/api/v1.0/tweets/AnshulChandrol`, 'call to api');
+    const req = httpTestingController.expectOne(`http://localhost:8090/api/v1.0/tweets/AnshulChandrol`, 'call to api');
     expect(req.request.method).toBe('GET');
     req.flush(dummyTweet);
     httpTestingController.verify();
@@ -58,7 +58,7 @@ describe('TweetService', () => {
     expect(data).toEqual(dummyTweet);
     console.log(data)
     });
-    const req = httpTestingController.expectOne(`http://localhost:8089/api/v1.0/tweets/AnshulChandrol/replyed/1234567`, 'call to api');
+    const req = httpTestingController.expectOne(`http://localhost:8090/api/v1.0/tweets/AnshulChandrol/replyed/1234567`, 'call to api');
     expect(req.request.method).toBe('GET');
     req.flush(dummyTweet);
     httpTestingController.verify();
@@ -71,7 +71,7 @@ describe('TweetService', () => {
       console.log(data)
       expect(data).toBe(dummyTweet);
       });
-    const req = httpTestingController.expectOne(`http://localhost:8089/api/v1.0/tweets/AnshulChandrol/add`,'post tweet');
+    const req = httpTestingController.expectOne(`http://localhost:8090/api/v1.0/tweets/AnshulChandrol/add`,'post tweet');
     expect(req.request.method).toBe('POST');
     req.flush(dummyTweet);
     httpTestingController.verify();
@@ -86,7 +86,7 @@ describe('TweetService', () => {
       console.log(data)
       expect(data).toBe(dummyTweet);
       });
-    const req = httpTestingController.expectOne(`http://localhost:8089/api/v1.0/tweets/AnshulChandrol/reply/test1234`,'reply tweet');
+    const req = httpTestingController.expectOne(`http://localhost:8090/api/v1.0/tweets/AnshulChandrol/reply/test1234`,'reply tweet');
     expect(req.request.method).toBe('POST');
     req.flush(dummyTweet);
     httpTestingController.verify();
@@ -99,7 +99,7 @@ describe('TweetService', () => {
       console.log(data)
       expect(data).toBe(dummyTweet);
       });
-    const req = httpTestingController.expectOne(`http://localhost:8089/api/v1.0/tweets/AnshulChandrol/update/1234567`,'edit tweet');
+    const req = httpTestingController.expectOne(`http://localhost:8090/api/v1.0/tweets/AnshulChandrol/update/1234567`,'edit tweet');
     expect(req.request.method).toBe('PUT');
     req.flush(dummyTweet);
     httpTestingController.verify();
@@ -111,7 +111,7 @@ describe('TweetService', () => {
       console.log(data)
       expect(data).toBe(dummyTweet);
       });
-    const req = httpTestingController.expectOne(`http://localhost:8089/api/v1.0/tweets/AnshulChandrol/like/1234567`,'like tweet');
+    const req = httpTestingController.expectOne(`http://localhost:8090/api/v1.0/tweets/AnshulChandrol/like/1234567`,'like tweet');
     expect(req.request.method).toBe('PUT');
     req.flush(dummyTweet);
     httpTestingController.verify();
