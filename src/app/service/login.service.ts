@@ -16,10 +16,10 @@ export class LoginService {
   constructor(private http:HttpClient) { }
 
   onLogin(login:Login) : Observable<any>{
-    return this.http.post<Login>("http://localhost:8089/api/v1.0/tweets/login",login);
+    return this.http.post<Login>("http://localhost:8090/api/v1.0/tweets/login",login);
   }
   onForget(userid:string, pwd:string) {
-    return this.http.put<string>("http://localhost:8089/api/v1.0/tweets/"+userid+"/forget",pwd);
+    return this.http.put<string>("http://localhost:8090/api/v1.0/tweets/"+userid+"/forget",pwd);
   }
   
 }
